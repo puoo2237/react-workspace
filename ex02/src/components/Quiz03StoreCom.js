@@ -2,7 +2,7 @@ function Quiz03StoreCom({ store, InPerson, OutPerson }) {
 
     return (
         <>
-            <div style={{ whiteSpace: 'pre-wrap' }}>{store.msg}</div>
+            {store.msg}
             <hr></hr>
             <button onClick={InPerson}>입장</button>
             <button onClick={OutPerson}>퇴장</button>

@@ -16,12 +16,17 @@ function Quiz03StoreCon() {
             setStore({ ...store, outData: store.outData + 1 });
         }
     }
-    store.msg = (store.inData === 0) && (store.outData === 0) ?
-        "오픈 전입니다." : `오늘 입장한 고객: ${store.inData}명 입니다.\n오늘 퇴장한 고객: ${store.outData}명 입니다.\n현재 입장한 고객: ${store.inData - store.outData}명 입니다.`
-    return (
-        <>
-            <Quiz03StoreCom store={store} InPerson={InPerson} OutPerson={OutPerson} />
-        </>
-    );
+    store.msg = ((store.inData === 0) && (store.outData === 0)) ?
+        <span>오픈 전입니다.</span> :
+        <div>오늘 입장한 고객: {store.inData}명 입니다.<br></br>
+            오늘 퇴장한 고객: {store.outData}명 입니다.<br></br>
+            현재 입장한 고객: {store.inData - store.outData}명 입니다.</div>
+
+
+return (
+    <>
+        <Quiz03StoreCom store={store} InPerson={InPerson} OutPerson={OutPerson} />
+    </>
+);
 }
 export default Quiz03StoreCon;
