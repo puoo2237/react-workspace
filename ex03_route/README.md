@@ -1,5 +1,6 @@
 ## 구성 
 
+```text
 src
  ├─ components
  │   ├─ common
@@ -27,3 +28,4 @@ src
  │
  └─ service
      └─ member.js           // 회원 정보
+```
