@@ -5,14 +5,12 @@ function MOneCom({ user }) {
     const navigate = useNavigate();
     return (
         <>
-            <nav>
-                <ul>
-                    <li>id: {user.id}</li>
-                    <li>pwd: {user.pwd}</li>
-                    <li>name: {user.name}</li>
-                    <li>addr: {user.addr}</li>
-                </ul>
-            </nav>
+            <ul>
+                <li>id: {user.id}</li>
+                <li>pwd: {user.pwd}</li>
+                <li>name: {user.name}</li>
+                <li>addr: {user.addr}</li>
+            </ul>
             <button onClick={() => navigate('/member/delete/' + user.id)}>삭제</button>
         </>
     )

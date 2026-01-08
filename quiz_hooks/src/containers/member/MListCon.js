@@ -3,11 +3,11 @@ import MListCom from "../../components/member/MListCom"
 import { getData } from "../../service/member"
 
 function MListCon() {
-    const [member, memberSet] = useState([]);
+    const [member, setMember] = useState([]);
 
     useEffect(() => {
-        memberSet(getData())
-    })
+        setMember(getData())
+    }, [])
 
     return (
         <>

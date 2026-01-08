@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { delOne, getOne } from "../../service/member";
+import { delOne } from "../../service/member";
 import { useEffect } from "react";
 
 function MDeleteCon() {
