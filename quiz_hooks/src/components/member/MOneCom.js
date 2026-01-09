@@ -12,6 +12,7 @@ function MOneCom({ user }) {
                 <li>addr: {user.addr}</li>
             </ul>
             <button onClick={() => navigate('/member/delete/' + user.id)}>삭제</button>
+            <button onClick={() => navigate('/member/modify/' + user.id)}>수정</button>
         </>
     )
 }

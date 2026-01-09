@@ -6,7 +6,12 @@ function MListCon() {
     const [member, setMember] = useState([]);
 
     useEffect(() => {
-        setMember(getData())
+        const getMember = async () => {
+            const res = await getData()
+            setMember(await res.json())
+        }
+        getMember();
+        // setMember(getData())
     }, [])
 
     return (

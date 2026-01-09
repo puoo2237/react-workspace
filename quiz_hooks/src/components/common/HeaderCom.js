@@ -4,7 +4,8 @@ function HeaderCom() {
     return (<>
         <header>
             <Link to="/">HOME</Link> &nbsp;
-            <Link to="/member/list">MEMBER</Link>
+            <Link to="/member/list">MEMBER</Link> &nbsp;
+            <Link to="/join">회원가입</Link>
             <hr></hr>
         </header>
         <main>
