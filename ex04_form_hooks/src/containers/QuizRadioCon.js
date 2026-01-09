@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QuizRadioCom from "../components/QuizRadioCom"
 
+
 function QuizRadioCon() {
     const initialAges = [
         { key: 1, value: "10대", name: "age", isChecked: true },
@@ -10,11 +11,13 @@ function QuizRadioCon() {
     const [ages, setAges] = useState(initialAges);
     const onChange = (e) => {
         setAges(ages.map(age => ({ ...age, isChecked: age.key == e.target.id })))
-        console.log(ages)
     }
 
+    const onSubmit = (e) => {
+        e.preventDefault(); // 페이지 이동 방지
+    }
     return (<>
-        <QuizRadioCom ages={ages} onChange={onChange} />
+        <QuizRadioCom ages={ages} onChange={onChange} onSubmit={onSubmit} />
     </>)
 }
 export default QuizRadioCon
