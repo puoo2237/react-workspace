@@ -16,7 +16,7 @@ const reducer = (state, action) => {
     switch (action.type) {
         // case "LOGIN_INPUT": return { ...state, [action.name]: action.value };
         // case "REG_INPUT": return { ...state, [action.name]: action.value };
-        case "LIST": return { data: action.data }
+        case "LIST": return {...state, data: action.data }
         case "CHANGE_INPUT":
             console.log("action:", action)
             return {
