@@ -4,6 +4,31 @@ let data_set = [
     { id: "ccc", pwd: "ccc", name: "고길동", addr: "마포구" },
     { id: "ddd", pwd: "ddd", name: "이말년", addr: "동작구" },
 ]
+
+export const initialState = {
+    join: { id: "", pwd: "", check_pwd: "", name: "", addr: "" },
+    modify: { id: "", pwd: "", check_pwd: "", name: "", addr: "" },
+    one: {data: null},
+    all: {data: null},
+    loading: false,
+    error: null
+}
+
+export const reducer = (state, action) => {
+    console.log("action", action)
+    switch (action.type) {
+        case "CHANGE_INPUT": return {
+            ...state, [action.form]: {
+                ...state[action.form], [action.name]: action.value
+            }
+        }
+        case "LIST": return {...state, [action.form]: {...state[action.form], data: action.data}}
+        case "LOADING": return {...state, loading: true}
+        case "FINISHED": return {...state, loading: false}
+        case "ERROR": return {...state, error: action.msg}
+        default: return state;
+    }
+}
 const path = "http://localhost:4000/mem";
 export const getData = () => {
     return fetch(path)

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function MListCom({ member }) {
+function MListCom({ error, loading, member }) {
 
     return (
         <>
@@ -23,7 +23,7 @@ function MListCom({ member }) {
                     </tbody>
                 </table>
             </div> */}
-            <div>
+            {loading ? <h3>로딩중</h3> : (error ? <h3>{error}</h3> : <div>
                 <table border="1">
                     <thead>
                         <tr key="head">
@@ -32,16 +32,17 @@ function MListCom({ member }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {member.map((mem) => {
+                        {member && member.map((mem) => {
                             return <tr key={mem.id}>
                                 <td>{mem.id}</td>
-                                <td><Link to={"/member/one/"+ mem.id}>{mem.name}</Link></td>
+                                <td><Link to={"/member/one/" + mem.id}>{mem.name}</Link></td>
                             </tr>
                         })
                         }
                     </tbody>
                 </table>
             </div>
+            )}
 
         </>
     )

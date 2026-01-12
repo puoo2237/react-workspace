@@ -1,23 +1,31 @@
 import { useParams } from "react-router-dom"
 import MOneCom from "../../components/member/MOneCom"
-import { getOne } from "../../service/member"
-import { useEffect, useState } from "react";
+import { getOne, initialState, reducer } from "../../service/member"
+import { useEffect, useReducer, useState } from "react";
 
 function MOneCon() {
     const params = useParams();
-    const [user, setUser] = useState({});
+    const [state, dispatch] = useReducer(reducer, initialState);
+    // const [user, setUser] = useState({});
 
     useEffect(() => {
+        dispatch({ type: "LOADING" })
         const getUser = async () => {
             const res = await getOne(params.id)
-            setUser(await res.json())
+            dispatch({
+                type: "LIST",
+                data: await res.json(),
+                form: "one"
+            })
+            // setUser(await res.json())
         }
         getUser()
         // setUser(getOne(params.id))
-    }, [])
+        dispatch({ type: "FINISHED" })
+    }, [params.id])
     return (
         <>
-            <MOneCom user={user} />
+            <MOneCom loading={state.loading} user={state.one.data} />
         </>
     )
 }
