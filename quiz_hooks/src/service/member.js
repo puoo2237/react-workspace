@@ -7,6 +7,7 @@ let data_set = [
 
 export const initialState = {
     join: { id: "", pwd: "", check_pwd: "", name: "", addr: "" },
+    login: { id: "", pwd: ""},
     modify: { id: "", pwd: "", check_pwd: "", name: "", addr: "" },
     one: {data: null},
     all: {data: null},
