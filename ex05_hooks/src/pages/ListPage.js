@@ -1,9 +1,9 @@
-import HeaderCom from "../components/HeaderCom";
 import ListCon from "../containers/ListCon";
+import HeaderCon from "../containers/HeaderCon";
 
 function ListPage() {
     return (<>
-        <HeaderCom />
+        <HeaderCon />
         <ListCon />
     </>)
 }
